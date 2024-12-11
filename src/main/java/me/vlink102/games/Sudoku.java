@@ -1,4 +1,7 @@
-package me.vlink102;
+package me.vlink102.games;
+
+import me.vlink102.util.NiceButton;
+import me.vlink102.util.SettingsPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -359,6 +362,15 @@ public class Sudoku extends JFrame {
         });
     }
 
+    static char[][] clone(char[][] a) {
+        char[][] b = new char[a.length][];
+        for (int i = 0; i < a.length; i++) {
+            b[i] = new char[a[i].length];
+            System.arraycopy(a[i], 0, b[i], 0, a[i].length);
+        }
+        return b;
+    }
+
     static int[][] clone(int[][] a) {
         int[][] b = new int[a.length][];
         for (int i = 0; i < a.length; i++) {
@@ -419,7 +431,7 @@ public class Sudoku extends JFrame {
     }
 
     public static class NumberPad extends JDialog {
-        private int selectedNumber = -1;
+        private int selectedNumber = 0;
 
         public NumberPad(JFrame parent) {
             super(parent, "Number Pad", true);

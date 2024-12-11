@@ -1,4 +1,4 @@
-package me.vlink102;
+package me.vlink102.util;
 
 import javax.swing.*;
 import java.awt.*;

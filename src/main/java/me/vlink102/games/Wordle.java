@@ -1,4 +1,4 @@
-package me.vlink102;
+package me.vlink102.games;
 
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialOceanicIJTheme;
 import lombok.Getter;
@@ -209,8 +209,16 @@ public class Wordle extends JFrame {
         return sum;
     }
 
+    public static int sumDistinct(String word) {
+        return word.chars().distinct().toArray().length;
+    }
+
     public static List<String> mostCommonWordsOrder(List<String> words) {
         return words.stream().sorted(Comparator.comparingInt(Wordle::sumCommon)).toList().reversed();
+    }
+
+    public static List<String> genericWordOrder(List<String> words) {
+        return words.stream().sorted(Comparator.comparingInt(Wordle::sumDistinct)).toList().reversed();
     }
 
     public static boolean isValid(String word) {
